@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>機械学習勉強会</title>
+    <title>深層学習勉強会</title>
+
+    <!-- OGP設定 -->
+    <meta property="og:title" content="深層学習勉強会">
+    <meta property="og:description" content="次の本を読む機械学習の勉強会を主催します．深層学習に関する全般的な知識を学習します．">
+    <meta property="og:image" content="DeepLearning.jpg">
+    <meta property="og:url" content="https://example.com">  <!-- 適切なURLに置き換えてください -->
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Cards設定 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="深層学習勉強会">
+    <meta name="twitter:description" content="次の本を読む機械学習の勉強会を主催します．深層学習に関する全般的な知識を学習します．">
+    <meta name="twitter:image" content="DeepLearning.jpg">
+
     <style>
         body {
             display: flex;
@@ -14,16 +28,41 @@
             font-family: sans-serif;
         }
         .container {
-            text-align: center;
+            text-align: left; /* 左寄せに変更 */
+            display: flex; /* Flexboxを使用 */
+            flex-direction: column; /* 子要素を縦に並べる */
+            align-items: flex-start; /* 左寄せ */
+        }
+        .book-info {
+            display: flex; /* Flexboxを使用 */
+            align-items: center; /* 縦方向中央揃え */
+            flex-direction: row-reverse; /* 画像を右側に配置 */
+        }
+        .book-info img {
+            max-width: 200px; /* 画像の最大幅 */
+            height: auto;
+            margin-left: 20px; /* 画像とテキストの間隔 */
+        }
+        .book-details {
+            text-align: left; /* テキストを左寄せ */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>次の本を読む機械学習の勉強会を主催します．</h1>
-        <p>読む本：岡谷『深層学習（第2版）』</p>
-        <p>概要：深層学習に関する全般的な知識を学習します．</p>
-        <p>目標：深層学習における基本的な知識，諸概念を理解し，研究を開始する土台を築く．</p>
+        <h1>深層学習勉強会</h1>
+        <p>次の本を読む機械学習の勉強会を主催します．</p>
+        <div class="book-info">
+            <img src="DeepLearning.jpg" alt="DeepLearning Image">
+            <div class="book-details">
+                <p><strong>読む本：</strong>岡谷<strong>『深層学習（第2版）』</strong></p>
+                <p><strong>概要：</strong>深層学習に関する全般的な知識を学習します．</p>
+                <p><strong>目標：</strong>深層学習における基本的な知識，諸概念を理解し，研究を開始する土台を築く．</p>
+                <p><strong>必要な知識：</strong>線形代数，微分積分，確率論，統計学</p>
+                <p><strong>キーワード：</strong>深層学習，生成モデル，Transformer，GAN，BERT，GPT</p>
+                <p><strong>参考文献：</strong>平井『はじめてのパターン認識』，ビショップ『パターン認識と機械学習』</p>
+            </div>
+        </div>
         <h2>発表者募集（計6人）：</h2>
         <ul>
             <li>第1,2,3,4章：担当者1人</li>
@@ -34,6 +73,11 @@
             <li>第12章：担当者1人</li>
         </ul>
         <p>(50+10)×2=120m(2h)を3回を予定する．都合が合わなければ分割する．人数次第．</p>
+        <h2>有用な資料</h2>
+        <ul>
+            <li><strong>3BLUE1brown「ニューラルネットワークの仕組み」</strong>：<a href="https://www.youtube.com/watch?v=tc8RTtwvd5U">[Link]</a></li>
+            <li><strong>線形代数，微分積分の資料. 北大. </strong>：<a href="https://www7b.biglobe.ne.jp/~h-kuroda/lecture.html">[Link]</a></li>
+        </ul>
     </div>
 </body>
 </html>
