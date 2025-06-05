@@ -11,23 +11,7 @@
     </script>
 </head>
 <body>
-    <div class="toc">
-        <h2>目次</h2>
-        <ul>
-            <li><a href="section1.html">第1章</a></li>
-            <li><a href="section2.html" class="active">第2章</a></li>
-            <li><a href="section3.html">第3章</a></li>
-            <li><a href="section4.html">第4章</a></li>
-            <li><a href="section5.html">第5章</a></li>
-            <li><a href="section6.html">第6章</a></li>
-            <li><a href="section7.html">第7章</a></li>
-            <li><a href="section8.html">第8章</a></li>
-            <li><a href="section9.html">第9章</a></li>
-            <li><a href="section10.html">第10章</a></li>
-            <li><a href="section11.html">第11章</a></li>
-            <li><a href="section12.html">第12章</a></li>
-        </ul>
-    </div>
+    <div id="toc"></div>
     <div class="main-content">
         <h1>第2章：ネットワークの基本構造</h1>
         <p>
@@ -65,5 +49,20 @@
             入力層から出力層まで順番に計算が進むため，順伝播型と呼ばれる．
         </p>
     </div>
+    <script>
+      fetch('toc.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('toc').innerHTML = html;
+          // activeクラス付与
+          const links = document.querySelectorAll('#toc a');
+          const current = location.pathname.split('/').pop();
+          links.forEach(link => {
+            if(link.getAttribute('href') === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+    </script>
 </body>
 </html>
