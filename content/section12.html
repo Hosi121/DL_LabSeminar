@@ -17,7 +17,7 @@
         <p>第12章の解説をここに記述します。</p>
     </div>
     <script>
-      fetch('toc.html')
+      fetch('../toc.html')
         .then(response => response.text())
         .then(html => {
           document.getElementById('toc').innerHTML = html;
