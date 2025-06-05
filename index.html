@@ -19,32 +19,242 @@
     <meta name="twitter:image" content="DeepLearning.jpg">
 
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        :root {
+            --background: #ffffff;
+            --foreground: #020817;
+            --card: #ffffff;
+            --card-foreground: #020817;
+            --primary: #0f172a;
+            --primary-foreground: #f8fafc;
+            --secondary: #f1f5f9;
+            --secondary-foreground: #0f172a;
+            --muted: #f1f5f9;
+            --muted-foreground: #64748b;
+            --accent: #f1f5f9;
+            --accent-foreground: #0f172a;
+            --border: #e2e8f0;
+            --radius: 0.5rem;
+        }
+
+        * {
             margin: 0;
-            font-family: sans-serif;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
         .container {
-            text-align: left; /* 左寄せに変更 */
-            display: flex; /* Flexboxを使用 */
-            flex-direction: column; /* 子要素を縦に並べる */
-            align-items: flex-start; /* 左寄せ */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
         }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted-foreground);
+        }
+
         .book-info {
-            display: flex; /* Flexboxを使用 */
-            align-items: center; /* 縦方向中央揃え */
-            flex-direction: row-reverse; /* 画像を右側に配置 */
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            align-items: flex-start;
         }
+
         .book-info img {
-            max-width: 200px; /* 画像の最大幅 */
+            max-width: 200px;
             height: auto;
-            margin-left: 20px; /* 画像とテキストの間隔 */
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
+
         .book-details {
-            text-align: left; /* テキストを左寄せ */
+            flex: 1;
+        }
+
+        .book-details p {
+            margin-bottom: 0.75rem;
+        }
+
+        .book-details strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        li:hover a {
+            color: var(--muted-foreground);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin: 1.5rem 0 0.75rem;
+            }
+
+            .book-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .book-info img {
+                max-width: 150px;
+                margin-bottom: 0.5rem;
+            }
+
+            .book-details p {
+                margin-bottom: 0.5rem;
+                font-size: 0.95rem;
+            }
+
+            ul {
+                margin: 0.5rem 0;
+            }
+
+            li {
+                margin-bottom: 0.5rem;
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+
+            li:hover {
+                transform: translateX(2px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                padding: 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .book-info {
+                padding: 0.75rem;
+            }
+
+            .book-info img {
+                max-width: 120px;
+            }
+
+            .book-details p {
+                font-size: 0.9rem;
+            }
+
+            li {
+                font-size: 0.9rem;
+                padding: 0.6rem;
+            }
+        }
+
+        .footer {
+            width: 100%;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 1rem 0;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 0.75rem 0;
+                margin-top: 1.5rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -65,18 +275,18 @@
         </div>
         <h2>目次</h2>
         <ul>
-            <li>第1章：はじめに <a href="section1.html">[details]</a></li>
-            <li>第2章：ネットワークの基本構造 <a href="section2.html">[details]</a></li>
-            <li>第3章：確率的勾配降下法 <a href="section3.html">[details]</a></li>
-            <li>第4章：誤差逆伝播法 <a href="section4.html">[details]</a></li>
-            <li>第5章：畳み込みニューラルネットワーク <a href="section5.html">[details]</a></li>
-            <li>第6章：系列データのためのネットワーク <a href="section6.html">[details]</a></li>
-            <li>第7章：集合・グラフのためのネットワークと注意機構 <a href="section7.html">[details]</a></li>
-            <li>第8章：推論の信頼性 <a href="section8.html">[details]</a></li>
-            <li>第9章：説明と可視化 <a href="section9.html">[details]</a></li>
-            <li>第10章：いろいろな学習方法 <a href="section10.html">[details]</a></li>
-            <li>第11章：データが少ない場合の学習 <a href="section11.html">[details]</a></li>
-            <li>第12章：生成モデル <a href="section12.html">[details]</a></li>
+            <li><a href="section1.html">第1章：はじめに</a></li>
+            <li><a href="section2.html">第2章：ネットワークの基本構造</a></li>
+            <li><a href="section3.html">第3章：確率的勾配降下法</a></li>
+            <li><a href="section4.html">第4章：誤差逆伝播法</a></li>
+            <li><a href="section5.html">第5章：畳み込みニューラルネットワーク</a></li>
+            <li><a href="section6.html">第6章：系列データのためのネットワーク</a></li>
+            <li><a href="section7.html">第7章：集合・グラフのためのネットワークと注意機構</a></li>
+            <li><a href="section8.html">第8章：推論の信頼性</a></li>
+            <li><a href="section9.html">第9章：説明と可視化</a></li>
+            <li><a href="section10.html">第10章：いろいろな学習方法</a></li>
+            <li><a href="section11.html">第11章：データが少ない場合の学習</a></li>
+            <li><a href="section12.html">第12章：生成モデル</a></li>
         </ul>
 
         <h2>発表者</h2>
@@ -88,12 +298,14 @@
             <li>第10,11章：舛岡</li>
             <li>第12章：高島</li>
         </ul>
-        <p>(50+10)×2=120m(2h)を3回を予定する．都合が合わなければ分割する．人数次第．</p>
         <h2>有用な資料</h2>
         <ul>
-            <li><strong>3BLUE1brown「ニューラルネットワークの仕組み」</strong>：<a href="https://www.youtube.com/watch?v=tc8RTtwvd5U">[Link]</a></li>
-            <li><strong>線形代数，微分積分の資料. 北大. </strong>：<a href="https://www7b.biglobe.ne.jp/~h-kuroda/lecture.html">[Link]</a></li>
+            <li><a href="https://www.youtube.com/watch?v=tc8RTtwvd5U">3BLUE1brown「ニューラルネットワークの仕組み」</a></li>
+            <li><a href="https://www7b.biglobe.ne.jp/~h-kuroda/lecture.html">線形代数，微分積分の資料. 北大.</a></li>
         </ul>
     </div>
+    <footer class="footer">
+        <p>&copy; 2024 深層学習勉強会. All rights reserved.</p>
+    </footer>
 </body>
 </html>
