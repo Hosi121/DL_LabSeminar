@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第2章：ネットワークの基本構造</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="mathjax_config.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+</head>
+<body>
+    <div class="toc">
+        <h2>目次</h2>
+        <ul>
+            <li><a href="section1.html">第1章</a></li>
+            <li><a href="section2.html" class="active">第2章</a></li>
+            <li><a href="section3.html">第3章</a></li>
+            <li><a href="section4.html">第4章</a></li>
+            <li><a href="section5.html">第5章</a></li>
+            <li><a href="section6.html">第6章</a></li>
+            <li><a href="section7.html">第7章</a></li>
+            <li><a href="section8.html">第8章</a></li>
+            <li><a href="section9.html">第9章</a></li>
+            <li><a href="section10.html">第10章</a></li>
+            <li><a href="section11.html">第11章</a></li>
+            <li><a href="section12.html">第12章</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>第2章：ネットワークの基本構造</h1>
+        <p>
+            パーセプトロンは次のように表せる．
+            \[
+            y = \begin{cases}
+            1 & \text{if } \sum_{i=1}^n w_i x_i + b > 0 \\
+            0 & \text{otherwise}
+            \end{cases}
+            \]
+            ここで，\(x_i\)は入力，\(w_i\)は重み，\(b\)はバイアスを表す．
+        </p>
+
+        <p>
+            多層パーセプトロン（MLP）は，複数の層を持つパーセプトロンである．
+            中間層の出力は以下のように表される：
+            \[
+            h_j = \sigma\left(\sum_{i=1}^n w_{ji}x_i + b_j\right)
+            \]
+            ここで，\(\sigma\)は活性化関数（シグモイド関数など）を表す．
+            最終的な出力層は：
+            \[
+            y_k = \sigma\left(\sum_{j=1}^m w_{kj}h_j + b_k\right)
+            \]
+        </p>
+
+        <p>
+            順伝播型ニューラルネットワーク（FFN）は，多層パーセプトロンの一般化された形式である．
+            各層の計算は以下のように表される：
+            \[
+            \mathbf{h}^{(l)} = \sigma(\mathbf{W}^{(l)}\mathbf{h}^{(l-1)} + \mathbf{b}^{(l)})
+            \]
+            ここで，\(\mathbf{h}^{(l)}\)は\(l\)層目の出力，\(\mathbf{W}^{(l)}\)は重み行列，
+            \(\mathbf{b}^{(l)}\)はバイアスベクトルを表す．
+            入力層から出力層まで順番に計算が進むため，順伝播型と呼ばれる．
+        </p>
+    </div>
+</body>
+</html>
